@@ -1,0 +1,12 @@
+<div class="form-check form-check-inline {{ field_extra_classes }}">
+  <input class="form-check-input" type="checkbox"
+     id="id_{{ field.name }}"
+     name="{{ field.name }}"
+     {% if field_value %} value="{{ field_value }}" {% endif %}>
+  <label class="form-check-label"  for="id_{{ field.name }}" {% if field.field.required %} class="requiredField" {% endif %}>
+    {{ field.label }}{% if field.field.required %}<span class="asteriskField">*</span>{% endif %}
+  </label>
+  {% for form_field, errors in form.errors.items %}
+    {% if form_field == field.name %}{% for error in errors %}<small class="text-danger">{{ error|escape }}</small>{% endfor %}{% endif %}
+  {% endfor %}
+</div>

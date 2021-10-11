@@ -1,0 +1,36 @@
+[
+{
+    "model": "django_uploads_app.uploadtype",
+    "pk": "file",
+    "fields": {
+        "name": "File",
+        "validation_module": null,
+        "is_public": true,
+        "file_mime": null,
+        "upload_success_message": null,
+        "upload_success_redirect_url": null,
+        "upload_success_rpc_url": null,
+        "times_downloadable": null,
+        "active_forever": true,
+        "active_until": null,
+        "groups": []
+    }
+},
+{
+    "model": "django_uploads_app.uploadtype",
+    "pk": "ftp",
+    "fields": {
+        "name": "FTP",
+        "validation_module": null,
+        "is_public": true,
+        "file_mime": null,
+        "upload_success_message": null,
+        "upload_success_redirect_url": null,
+        "upload_success_rpc_url": null,
+        "times_downloadable": null,
+        "active_forever": true,
+        "active_until": null,
+        "groups": []
+    }
+}
+]

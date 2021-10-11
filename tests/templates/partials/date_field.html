@@ -1,0 +1,11 @@
+<div class="form-group col {{ field_extra_classes }}">
+  <input type="date" class="form-control" id="id_{{ field.name }}" name="{{ field.name }}"
+         {% if field_value %} value="{{ field_value }}" {% else %}  value="{{ field.value|default_if_none:'' }}" {% endif %}
+         {% if field.field.required %} required {% endif %} >
+  <label for="id_{{ field.name }}"  class="active {% if field.field.required %} requiredField {% endif %}">
+    {{ field.label }}{% if field.field.required %}<span class="asteriskField">*</span>{% endif %}
+  </label>
+  {% for form_field, errors in form.errors.items %}
+    {% if form_field == field.name %}{% for error in errors %}<small class="text-danger">{{ error|escape }}</small>{% endfor %}{% endif %}
+  {% endfor %}
+</div>

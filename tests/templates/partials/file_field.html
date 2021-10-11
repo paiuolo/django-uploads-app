@@ -1,0 +1,10 @@
+<div class="form-group col {{ field_extra_classes }}">
+  <input type="file" class="form-control" id="id_{{ field.name }}" name="{{ field.name }}"
+         {% if field.field.required %} required {% endif %} >
+  <label for="id_{{ field.name }}" {% if field.field.required %} class="requiredField active" {% endif %}>
+    {{ field.label }}{% if field.field.required %}<span class="asteriskField">*</span>{% endif %}
+  </label>
+  {% for form_field, errors in form.errors.items %}
+    {% if form_field == field.name %}{% for error in errors %}<small class="text-danger">{{ error|escape }}</small>{% endfor %}{% endif %}
+  {% endfor %}
+</div>

@@ -1,0 +1,18 @@
+{% load countries %}
+
+<div class="form-group col {{ field_extra_classes }}">
+  <div class="bootstrap-select-wrapper">
+  <select name="{{ field.name }}" id="id_{{ field.name }}" data-live-search="true" {% if field.country.required %} required {% endif %}>
+  <option {% if field_value %} value="{{ field_value }}" {% else %}  value="{{ field.value|default_if_none:'' }}" {% endif %}>{{ field.value.name }}</option>
+  {% get_countries as countries %}
+  {% for country in countries %}
+    {% if country.code != form.country.value.code %}
+      <option name="country" value="{{ country.code }}">{{ country.name }}</option>
+    {% endif %}
+  {% endfor %}
+  </select>
+  </div>
+  {% for form_field, errors in form.errors.items %}
+    {% if form_field == field.name %}{% for error in errors %}<small class="text-danger">{{ error|escape }}</small>{% endfor %}{% endif %}
+  {% endfor %}
+</div>
