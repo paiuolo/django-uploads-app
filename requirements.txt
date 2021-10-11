@@ -14,4 +14,4 @@ celery==4.4.2  # pyup: < 5.0  # https://github.com/celery/celery
 django-filer==2.0.2
 django-json-widget==1.0.1
 
-django-sso-app
+django-sso-app>=0.12.0
