@@ -247,6 +247,7 @@ class FileUpload(UuidPKModel, CreatedAtModel, UpdatableModel):
                                        blank=True)
 
     file_data = models.FileField(storage=custom_fs,
+                                 max_length=255,
                                  upload_to=get_uploaded_file_path,
                                  null=True,
                                  blank=True)

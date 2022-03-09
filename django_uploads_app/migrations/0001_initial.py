@@ -138,7 +138,7 @@ class Migration(migrations.Migration):
                 ('upload_url', models.CharField(max_length=255, verbose_name='Upload url')),
                 ('file_url', models.CharField(blank=True, max_length=2048, null=True, verbose_name='File url')),
                 ('uploaded_at', models.DateTimeField(blank=True, null=True, verbose_name='date uploaded')),
-                ('file_data', models.FileField(blank=True, null=True, storage=django_uploads_app.storage.PrivateFileSystemStorage(), upload_to=django_uploads_app.models.get_uploaded_file_path)),
+                ('file_data', models.FileField(blank=True, null=True, storage=django_uploads_app.storage.PrivateFileSystemStorage(), max_length=255, upload_to=django_uploads_app.models.get_uploaded_file_path)),
                 ('filer_file', filer.fields.file.FilerFileField(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='filer.File')),
                 ('upload', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='file_upload', to='django_uploads_app.Upload', verbose_name='Upload')),
             ],
