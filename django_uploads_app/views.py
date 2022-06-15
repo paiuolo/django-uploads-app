@@ -72,7 +72,7 @@ class UploadTypeViewSet(viewsets.ModelViewSet):
     lookup_field = 'slug'
 
     def get_queryset(self):
-        return UploadType.get_user_upload_types(self.request.user).order_by('id')
+        return UploadType.get_user_upload_types(self.request.user).order_by('slug')
 
 
 class UploadViewSet(viewsets.ModelViewSet):
